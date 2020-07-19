@@ -4,7 +4,7 @@ from googletrans import Translator
 app = Flask(__name__)
 translator = Translator()
 
-@app.route('/<text>')
-def single_translate(text):
-    text = translator.translate('hello', dest='vi').text
-    return {'result': text}
+@app.route('/translate/single/<q>')
+def single_translate(q):
+    result_text = translator.translate(q, dest='vi').text
+    return {'result': result_text}
